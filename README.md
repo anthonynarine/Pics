@@ -305,6 +305,7 @@ NEXT STEP - we need to communicate the results of searchIages(term)
 
 
 
+Displaying our images. 
 
 
 
