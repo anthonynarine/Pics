@@ -153,5 +153,75 @@ export default searchImages;       << export this function
       parent (App). We cannot use the prop system because it usually 
       communicates info from a parent to a child. 
         ~Mystery to Figure out
-    
 
+    ~ to communicate data from a child to a parent we can use an Event 
+      handler. See UMl diagram of data flow. 
+
+      ~ in Apps (parent)
+        Create a handleSubmit function this will receive some term
+            coming from the child component (searchBar)
+            this is entered by the user then it goes back
+            up to handleSubmit. 
+
+        handleSubmit() will get passed down as a prop called OnSubmit
+        SearchBar will 
+
+
+    ~ Detecting a User Pressing the Enter Key
+        Wrap an <input /> element with a form element.
+        This has noting to do with JS or React.
+        This is a stardard thing in html. 
+
+        if you ever place an input element inside a form
+        elemnt and  press the enter key, your browser is goigng to cause this form element to automatically trigger an event called a Submit event. This particular structure is again an HTML standard We can listen to this event. 
+
+        order of operation:
+         1. user selects input presses the enter key. This triggers a submit event form
+         2. The form event is going to look at whatever value (prop) 
+            was passed to onSubmit and call it.
+
+        3. getting the current value out of our imput and into 
+
+            Where we currently are
+
+            handleSubmit uses prop system
+            to listen for the enter key being pressed.
+            
+           SearchBar is using an input ele. wrapped in a 
+           form ele with the forms automatic functionality 
+           turned off. 
+
+           we need to get user tex input back up to handleSubmit
+           ~Handling Text Inputs
+            1. Create a new piece of state.
+                in searchBar import {useState}
+                const [term, setTerm] = useState("");
+
+            2. create an event handler to watch for the "onChange" event
+               changes will include user adding text, deleting text, paste text etc
+
+                   const handleChange = () => {
+
+                      }
+
+                   <input onChange={handleChange}/>
+
+
+            3. When the "onChange" event fires, get the value from the input
+                    const handleChange = (event) => {
+                        console.log(event.target.value); 
+
+                we just want the event.target.value (run this console log if you are confused ;/)
+                    if anyone is reading this i'm struggling making a mental note hopefully i
+                    can come back and laugh at myself one day.  
+
+            4. Take that value from the input and use it to update our state. 
+
+            5.  Finally Pass your state to the input as the value prop.   
+
+
+
+
+
+
+    
