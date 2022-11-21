@@ -23,7 +23,6 @@ function SearchBar({onSubmit}) {
     );
 }
 
-
 export default SearchBar;
 
 // handleSubmit function will receive some term

@@ -263,7 +263,45 @@ import searchImagess from "./api";
     export default App;
 
 
-s
+      ~  async / await is needed when we call searchImages with term.
+        this will allow for the request to return the user's input.
+
+NEXT STEP - we need to communicate the results of searchIages(term)
+        down to our Imagelist. we do this using props. 
+
+            function App(){
+                const handleSubmit = async (term) => {
+                    const result = await searchImages(term);
+
+                    console.log(result)
+                }
+
+                return <div>
+                    <SearchBar onSubmit={handleSubmit}/>
+                </div>
+            }
+
+            note that the function has been updated to wait for a response and we stored the response in the variable results.
+
+            results is now the array of objects (images) 
+
+
+    1. First we need to show the images inside the App
+        import ImageList from "./components/ImageList";
+    
+    2. Make use of that right after the searchBar element.
+            return <div>
+                <SearchBar onSubmit={handleSubmit}/>
+                <ImageList /> ***
+            </div>
+
+    3. now that the search is complete and we have a response
+       we need to update the content on the screen with the new
+       list of images. Remember whenever we need to update content 
+       on screen it always means we are using the state system   
+
+    NOTE when state updates the components and all it's 
+         children are re-rendered as well. 
 
 
 
