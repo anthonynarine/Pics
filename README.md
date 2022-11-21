@@ -219,6 +219,52 @@ export default searchImages;       << export this function
 
             5.  Finally Pass your state to the input as the value prop.   
 
+                    ~ Completely Wired up and Input elemtnt in React ~ 
+
+                    function SearchBar({onSubmit}) {
+                        const [term, setTerm] = useState("");
+
+                        const handleFormSubmit = (event) => {
+                            event.preventDefault();        
+                            onSubmit("term");       
+                        };    
+                        const handleChange = (event) => {
+                            // console.log(event.target.value);
+                            setTerm(event.target.value)
+                        }
+                        return (
+                            <div>
+                                <form onSubmit={handleFormSubmit}>
+                                    <input value={term} onChange={handleChange}/>
+                                </form>
+                            </div>
+                        );
+                    }
+
+
+passing our term value into the searchImage function in api.js
+ 
+1. import searchImage into the app component. 
+2. call searchImages and pass in term
+
+import SearchBar from "./components/SearchBar";
+import searchImagess from "./api";
+
+    function App(){
+        const handleSubmit = (term) => {
+            searchImages(term);
+        }
+
+        return <div>
+            <SearchBar onSubmit={handleSubmit}/>
+        </div>
+    }
+
+    export default App;
+
+
+s
+
 
 
 
